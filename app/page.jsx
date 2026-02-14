@@ -1,10 +1,11 @@
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Features from '../components/Features'
-import Bento from '../components/Bento'
+import Achievements from '../components/Achievements'
+import News from '../components/News'
+import Teachers from '../components/Teachers'
 import Contact from '../components/Contact'
 import Footer from '../components/Footer'
-import GithubPreview from '../components/GithubPreview'
 
 export default function Page() {
   return (
@@ -13,8 +14,9 @@ export default function Page() {
       <main>
         <Hero />
         <Features />
-        <Bento />
-        <GithubPreview />
+        <Achievements />
+        <News />
+        <Teachers />
         <Contact />
       </main>
       <Footer />

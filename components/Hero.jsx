@@ -1,54 +1,55 @@
 'use client'
 
 import Image from 'next/image'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
-import Section from './Section'
 
 export default function Hero() {
   return (
-    <Section id="home" className="relative overflow-hidden">
-      <div className="pointer-events-none absolute -top-32 -left-20 h-96 w-96 rounded-full bg-gradient-to-br from-indigo-500/30 to-cyan-400/30 blur-3xl" />
-      <div className="pointer-events-none absolute -bottom-32 -right-20 h-[28rem] w-[28rem] rounded-full bg-gradient-to-tr from-indigo-500/25 to-cyan-400/25 blur-3xl" />
-
-      <div className="mx-auto max-w-7xl px-6 pt-24 pb-16 md:pt-32 md:pb-28">
-        <div className="grid items-center gap-10 md:grid-cols-2">
-          <div>
-            <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
-              Minimalistik va premium landing sahifa
-            </h1>
-            <p className="mt-4 text-slate-300 md:text-lg">
-              Ko‘p bo‘shliq, yumshoq soyalar va chiroyli tipografiya bilan yaratilgan, zamonaviy va moslashuvchan dizayn.
-            </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Link href="#services" className="btn-gradient rounded-lg px-6 py-3 text-sm font-medium">
-                Xizmatlarni ko‘rish
-              </Link>
-              <Link href="#contact" className="rounded-lg px-6 py-3 text-sm font-medium border border-white/10 hover:border-white/20 transition-colors">
-                Bog‘lanish
-              </Link>
-            </div>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="relative"
-          >
-            <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl glass">
-              <Image
-                alt="Hero"
-                src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1600&auto=format&fit=crop"
-                width={1200}
-                height={900}
-                className="h-full w-full object-cover"
-                priority
-              />
-            </div>
-          </motion.div>
-        </div>
+    <section id="home" className="relative overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          alt="40-Maktab binosi"
+          src="/images/hero-school.jpg"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-foreground/80 via-foreground/60 to-foreground/30" />
       </div>
-    </Section>
+
+      <div className="relative mx-auto max-w-7xl px-6 py-28 md:py-40 lg:py-48">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="max-w-2xl"
+        >
+          <span className="inline-block rounded-full bg-primary/20 px-4 py-1.5 text-sm font-medium text-primary-foreground backdrop-blur-sm border border-primary/30 mb-6">
+            2024-2025 o{"'"}quv yili
+          </span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-primary-foreground text-balance">
+            Kelajak bugundan boshlanadi
+          </h1>
+          <p className="mt-5 text-lg md:text-xl text-primary-foreground/80 leading-relaxed max-w-xl">
+            40-sonli umumiy o{"'"}rta ta{"'"}lim maktabi - zamonaviy ta{"'"}lim, professional o{"'"}qituvchilar va ilg{"'"}or texnologiyalar.
+          </p>
+          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+            <a
+              href="#contact"
+              className="inline-flex items-center justify-center rounded-lg bg-primary px-7 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors shadow-lg shadow-primary/25"
+            >
+              Hozir ro{"'"}yxatdan o{"'"}ting
+            </a>
+            <a
+              href="#about"
+              className="inline-flex items-center justify-center rounded-lg bg-primary-foreground/10 backdrop-blur-sm border border-primary-foreground/20 px-7 py-3.5 text-sm font-semibold text-primary-foreground hover:bg-primary-foreground/20 transition-colors"
+            >
+              Batafsil
+            </a>
+          </div>
+        </motion.div>
+      </div>
+    </section>
   )
 }
